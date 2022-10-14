@@ -23,5 +23,6 @@ output application/java
 		</ee:transform>
 		<logger level="INFO" doc:name="flow End" doc:id="13a3da0c-8826-4ec8-b5b5-ebf61b6d53b7" message="flow End"/>
 		<logger level="INFO" doc:name="demo end" doc:id="eb47df49-69d8-42cb-be79-25d8be4d1710" message="demo end"/>
+		<logger level="INFO" doc:name="GIT GUI" doc:id="8982cffd-ba4c-4750-ae9d-5a1bc7e499db" message="GIT GUI"/>
 	</flow>
 </mule>
