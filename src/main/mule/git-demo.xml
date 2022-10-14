@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="25477317-cbf8-457d-8d5d-07c531ccab13" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="git-demoFlow" doc:id="afabd521-ceea-4281-b05f-75afb8e5b31b" >
+		<http:listener doc:name="Listener" doc:id="c6faeb38-51d7-4b8d-82fb-356613ab7f7c" config-ref="HTTP_Listener_config" path="test"/>
+		<logger level="INFO" doc:name="flow start" doc:id="13a3da0c-8826-4ec8-b5b5-ebf61b6d53b7" message="flow start"/>
+		<ee:transform doc:name="Transform Message" doc:id="f7c4a502-dd53-4b73-b906-d55499ffbb21" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+{
+	status: "success"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="flow End" doc:id="13a3da0c-8826-4ec8-b5b5-ebf61b6d53b7" message="flow End"/>
+		<logger level="INFO" doc:name="demo end" doc:id="eb47df49-69d8-42cb-be79-25d8be4d1710" message="demo end"/>
+		<logger level="INFO" doc:name="GIT GUI" doc:id="8982cffd-ba4c-4750-ae9d-5a1bc7e499db" message="GIT GUI"/>
+		<logger level="INFO" doc:name="shameer" doc:id="c92dc65d-d116-4890-a4e3-1bcfd1605629" message="shameer"/>
+		<logger level="INFO" doc:name="fayaz" doc:id="e0cc710e-d395-47b1-81f4-5c03cb8c6a58" message="fayaz"/>
+	</flow>
+</mule>
